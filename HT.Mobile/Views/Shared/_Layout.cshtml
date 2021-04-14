@@ -1,0 +1,12 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    @Html.Partial("_HeadLink")
+</head>
+<body>
+    @RenderBody()
+    @Html.Partial("_FootLink")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

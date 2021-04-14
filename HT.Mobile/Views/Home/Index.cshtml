@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "货车百事帮";
+}
+@Html.Partial("_Header")
+<div class="banner">
+    @Html.Action("AdList", "Partial", new { code = "index_banner" })
+</div>
+<div class="ind_nav">
+    <div class="wrapper">
+        <ul class="ind_nav_ul">
+            <li>
+                <a href="@Url.Action("GoodsSource","Project")">
+                    <img src="/images/icon/icon01_1.png">
+                    <span>货源信息</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("CarSource","Project")">
+                    <img src="/images/icon/icon01_2.png">
+                    <span>车源信息</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Recruit","Project")">
+                    <img src="/images/icon/icon01_3.png">
+                    <span>招聘司机</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Job","Project")">
+                    <img src="/images/icon/icon01_4.png">
+                    <span>司机求职</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("CarSell","Project")">
+                    <img src="/images/icon/icon01_5.png">
+                    <span>车辆出售</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("CarBuy","Project")">
+                    <img src="/images/icon/icon01_6.png">
+                    <span>车辆求购</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Template","Project")">
+                    <img src="/images/icon/icon01_7.png">
+                    <span>通用模板</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="main">
+    <div class="ind_sec1">
+        <p class="p_tt"><span>热门推荐</span></p>
+        <ul class="ind_sec1_ul">
+            <li v-for="item in listData.list">
+                <list-component v-bind:item="item" v-if="item"></list-component>
+            </li>
+        </ul>
+    </div>
+</div>
+@Html.Partial("_Footer")
+@Html.Action("Template", "Partial", new { id = "List" })
+@Scripts.Render("/Scripts/Home/Index.js")
+

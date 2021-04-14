@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HT.Model", "HT.Model\HT.Model.csproj", "{BAA59196-19B0-4BC5-8B86-DAD4D07771B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HT.Utility", "HT.Utility\HT.Utility.csproj", "{2C15B7BB-625A-4B54-9831-D3297ADF128A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HT.Admin", "HT.Admin\HT.Admin.csproj", "{958DF036-9BCB-4D70-98F0-B87A0692F2E8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BAA59196-19B0-4BC5-8B86-DAD4D07771B7} = {BAA59196-19B0-4BC5-8B86-DAD4D07771B7}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HT.BLL", "HT.BLL\HT.BLL.csproj", "{E019B9BE-E447-47E7-841B-F0941ADE88B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HT.Mobile", "HT.Mobile\HT.Mobile.csproj", "{5C052137-5BF8-42C0-B052-D208639A5EE9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAA59196-19B0-4BC5-8B86-DAD4D07771B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAA59196-19B0-4BC5-8B86-DAD4D07771B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAA59196-19B0-4BC5-8B86-DAD4D07771B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAA59196-19B0-4BC5-8B86-DAD4D07771B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C15B7BB-625A-4B54-9831-D3297ADF128A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C15B7BB-625A-4B54-9831-D3297ADF128A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C15B7BB-625A-4B54-9831-D3297ADF128A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C15B7BB-625A-4B54-9831-D3297ADF128A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{958DF036-9BCB-4D70-98F0-B87A0692F2E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{958DF036-9BCB-4D70-98F0-B87A0692F2E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{958DF036-9BCB-4D70-98F0-B87A0692F2E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{958DF036-9BCB-4D70-98F0-B87A0692F2E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E019B9BE-E447-47E7-841B-F0941ADE88B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E019B9BE-E447-47E7-841B-F0941ADE88B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E019B9BE-E447-47E7-841B-F0941ADE88B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E019B9BE-E447-47E7-841B-F0941ADE88B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C052137-5BF8-42C0-B052-D208639A5EE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C052137-5BF8-42C0-B052-D208639A5EE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C052137-5BF8-42C0-B052-D208639A5EE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C052137-5BF8-42C0-B052-D208639A5EE9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EB8B2E57-AD22-4BA4-A2DD-9B0B93FB2B79}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+EndGlobal
