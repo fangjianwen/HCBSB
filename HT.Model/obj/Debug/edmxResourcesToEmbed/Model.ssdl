@@ -1,0 +1,523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ht_account">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="int" />
+    <Property Name="usertype" Type="int" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" />
+    <Property Name="mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="uid" Type="nvarchar" MaxLength="100" />
+    <Property Name="isopenpay" Type="int" />
+    <Property Name="opentime" Type="datetime" />
+    <Property Name="addtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_ad">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="code" Type="nvarchar" MaxLength="300" />
+    <Property Name="img_url" Type="nvarchar" MaxLength="200" />
+    <Property Name="url" Type="nvarchar" MaxLength="500" />
+    <Property Name="sort" Type="int" />
+    <Property Name="remarks" Type="nvarchar" MaxLength="200" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="ht_ad_category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="code" Type="nvarchar" MaxLength="50" />
+    <Property Name="sort" Type="int" />
+    <Property Name="num" Type="int" />
+  </EntityType>
+  <EntityType Name="ht_category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pid" Type="int" />
+    <Property Name="cid" Type="int" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="sort" Type="int" />
+  </EntityType>
+  <EntityType Name="ht_comm_relation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="relation_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="main_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="relation_type" Type="nvarchar" MaxLength="50" />
+    <Property Name="add_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_help">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="contents" Type="nvarchar(max)" />
+    <Property Name="sort" Type="int" />
+    <Property Name="excursion_count" Type="int" />
+    <Property Name="update_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_manager">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="100" />
+    <Property Name="roleid" Type="int" />
+    <Property Name="islock" Type="int" />
+    <Property Name="roletype" Type="int" />
+    <Property Name="salt" Type="nvarchar" MaxLength="50" />
+    <Property Name="nickname" Type="nvarchar" MaxLength="50" />
+    <Property Name="mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="addtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_manager_log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="int" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" />
+    <Property Name="actiontype" Type="nvarchar" MaxLength="50" />
+    <Property Name="remark" Type="nvarchar" MaxLength="50" />
+    <Property Name="userip" Type="nvarchar" MaxLength="50" />
+    <Property Name="addtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_manager_role">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rolename" Type="nvarchar" MaxLength="50" />
+    <Property Name="roletype" Type="int" />
+    <Property Name="issys" Type="int" />
+    <Property Name="addtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_manager_role_value">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="roleid" Type="int" />
+    <Property Name="navname" Type="nvarchar" MaxLength="100" />
+    <Property Name="actiontype" Type="nvarchar" MaxLength="50" />
+    <Property Name="addtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_navigation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="parentid" Type="int" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="subtitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="iconurl" Type="nvarchar" MaxLength="100" />
+    <Property Name="linkurl" Type="nvarchar" MaxLength="200" />
+    <Property Name="isshow" Type="int" />
+    <Property Name="sortid" Type="int" />
+    <Property Name="remark" Type="nvarchar" MaxLength="200" />
+    <Property Name="actiontype" Type="nvarchar" MaxLength="200" />
+    <Property Name="addtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_news">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cateid" Type="int" Nullable="false" />
+    <Property Name="cate" Type="nvarchar" MaxLength="50" />
+    <Property Name="title" Type="nvarchar" MaxLength="100" />
+    <Property Name="description" Type="nvarchar" MaxLength="100" />
+    <Property Name="contact_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="contact_phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="validity_num" Type="int" />
+    <Property Name="validity_unit" Type="nvarchar" MaxLength="4" />
+    <Property Name="start_province" Type="nvarchar" MaxLength="50" />
+    <Property Name="start_city" Type="nvarchar" MaxLength="50" />
+    <Property Name="start_district" Type="nvarchar" MaxLength="50" />
+    <Property Name="start_address" Type="nvarchar" MaxLength="200" />
+    <Property Name="stop_province" Type="nvarchar" MaxLength="50" />
+    <Property Name="stop_city" Type="nvarchar" MaxLength="50" />
+    <Property Name="stop_district" Type="nvarchar" MaxLength="50" />
+    <Property Name="stop_address" Type="nvarchar" MaxLength="50" />
+    <Property Name="tags" Type="nvarchar" MaxLength="50" />
+    <Property Name="use_type" Type="nvarchar" MaxLength="50" />
+    <Property Name="use_img" Type="nvarchar" MaxLength="300" />
+    <Property Name="car_length" Type="nvarchar" MaxLength="50" />
+    <Property Name="car_style" Type="nvarchar" MaxLength="50" />
+    <Property Name="goods_type" Type="nvarchar" MaxLength="50" />
+    <Property Name="goods_weight" Type="int" />
+    <Property Name="goods_weight_unit" Type="nvarchar" MaxLength="8" />
+    <Property Name="freight" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="use_time" Type="datetime" />
+    <Property Name="use_mode" Type="nvarchar" MaxLength="50" />
+    <Property Name="pay_method" Type="nvarchar" MaxLength="50" />
+    <Property Name="other_remark" Type="nvarchar" MaxLength="400" />
+    <Property Name="set_top" Type="int" />
+    <Property Name="set_top_money" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="reward_money" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="recruit_num" Type="int" />
+    <Property Name="imgs" Type="nvarchar" MaxLength="1000" />
+    <Property Name="add_userid" Type="int" Nullable="false" />
+    <Property Name="add_nickname" Type="nvarchar" MaxLength="50" />
+    <Property Name="add_avatar" Type="nvarchar" MaxLength="200" />
+    <Property Name="add_time" Type="datetime" Nullable="false" />
+    <Property Name="update_userid" Type="int" />
+    <Property Name="update_nickname" Type="nvarchar" MaxLength="50" />
+    <Property Name="update_time" Type="datetime" />
+    <Property Name="audit_userid" Type="int" />
+    <Property Name="audit_nickname" Type="nvarchar" MaxLength="50" />
+    <Property Name="audit_time" Type="datetime" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="pay_status" Type="int" Nullable="false" />
+    <Property Name="pay_time" Type="datetime" />
+    <Property Name="pay_trade_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="order_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="view_num" Type="int" Nullable="false" />
+    <Property Name="praise_num" Type="int" Nullable="false" />
+    <Property Name="share_num" Type="int" Nullable="false" />
+    <Property Name="is_delete" Type="int" />
+    <Property Name="total" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="ht_news_cate">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="int" />
+    <Property Name="sort" Type="int" />
+    <Property Name="addtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_order">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="orderno" Type="nvarchar" MaxLength="100" />
+    <Property Name="forderno" Type="nvarchar" MaxLength="100" />
+    <Property Name="fpaystatus" Type="int" />
+    <Property Name="fpaytime" Type="datetime" />
+    <Property Name="ftradeno" Type="nvarchar" MaxLength="100" />
+    <Property Name="lorderno" Type="nvarchar" MaxLength="100" />
+    <Property Name="lpaystatus" Type="int" />
+    <Property Name="lpaytime" Type="datetime" />
+    <Property Name="ltradeno" Type="nvarchar" MaxLength="100" />
+    <Property Name="bargainid" Type="int" />
+    <Property Name="bargainno" Type="nvarchar" MaxLength="100" />
+    <Property Name="captainuid" Type="int" />
+    <Property Name="shipperuid" Type="int" />
+    <Property Name="carrierid" Type="int" />
+    <Property Name="freightid" Type="int" />
+    <Property Name="orderstatus" Type="int" />
+    <Property Name="appraisestatus" Type="int" />
+    <Property Name="payid" Type="int" />
+    <Property Name="imprestrate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="finalrate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="imprestamount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="finalamount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="boatid" Type="int" />
+    <Property Name="boatcode" Type="nvarchar" MaxLength="100" />
+    <Property Name="starttime" Type="datetime" />
+    <Property Name="finishtime" Type="datetime" />
+    <Property Name="weight" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="bid" Type="int" />
+    <Property Name="bidprice" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="isarrive" Type="int" />
+    <Property Name="arrivetime" Type="datetime" />
+    <Property Name="checkstatus" Type="int" />
+    <Property Name="checktime" Type="datetime" />
+    <Property Name="checkweight" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="checkremark" Type="nvarchar(max)" />
+    <Property Name="unitprice" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="delayamount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="otheramount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="payablefinalamount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="realfinalamount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="issend" Type="int" />
+    <Property Name="isdissent" Type="int" />
+    <Property Name="sendtime" Type="datetime" />
+    <Property Name="isprofit" Type="int" />
+    <Property Name="profittime" Type="datetime" />
+    <Property Name="profittradeno" Type="nvarchar" MaxLength="100" />
+    <Property Name="ismarginrefund" Type="int" />
+    <Property Name="marginrefundno" Type="nvarchar" MaxLength="100" />
+    <Property Name="marginrefundtradeno" Type="nvarchar" MaxLength="100" />
+    <Property Name="marginrefundtime" Type="datetime" />
+    <Property Name="marginrefundamount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="addtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_order_appraise">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="int" />
+    <Property Name="orderid" Type="int" />
+    <Property Name="captainuid" Type="int" />
+    <Property Name="contents" Type="nvarchar(max)" />
+    <Property Name="deliveryspeed" Type="int" />
+    <Property Name="servicequality" Type="int" />
+    <Property Name="goodsdamage" Type="int" />
+    <Property Name="addtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_payment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="remark" Type="nvarchar" MaxLength="300" />
+    <Property Name="status" Type="int" />
+    <Property Name="sort" Type="int" />
+    <Property Name="fee" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="addtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_region">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="pid" Type="int" />
+    <Property Name="cid" Type="int" />
+    <Property Name="sort" Type="int" />
+  </EntityType>
+  <EntityType Name="ht_review">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="int" Nullable="false" />
+    <Property Name="nickname" Type="nvarchar" MaxLength="50" />
+    <Property Name="avatar" Type="nvarchar" MaxLength="200" />
+    <Property Name="review_type" Type="nvarchar" MaxLength="50" />
+    <Property Name="review_content" Type="nvarchar" MaxLength="500" />
+    <Property Name="add_time" Type="datetime" />
+    <Property Name="news_id" Type="int" />
+    <Property Name="status" Type="int" />
+    <Property Name="review_id" Type="int" />
+  </EntityType>
+  <EntityType Name="ht_single_page">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="50" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="content" Type="nvarchar(max)" />
+    <Property Name="update_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_sms_config">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="smsurl" Type="nvarchar" MaxLength="100" />
+    <Property Name="smsuser" Type="nvarchar" MaxLength="50" />
+    <Property Name="smspwd" Type="nvarchar" MaxLength="100" />
+    <Property Name="addtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_sms_email">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="contents" Type="nvarchar" MaxLength="500" />
+    <Property Name="code" Type="nvarchar" MaxLength="50" />
+    <Property Name="sort" Type="int" />
+    <Property Name="addtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_sms_record">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="code" Type="nvarchar" MaxLength="50" />
+    <Property Name="codetype" Type="int" />
+    <Property Name="expirestime" Type="datetime" />
+    <Property Name="addtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_sms_template">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="contents" Type="nvarchar" MaxLength="500" />
+    <Property Name="code" Type="nvarchar" MaxLength="50" />
+    <Property Name="sort" Type="int" />
+    <Property Name="addtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_sys_config">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="xkey" Type="nvarchar(max)" />
+    <Property Name="xvalue" Type="nvarchar(max)" />
+    <Property Name="remark" Type="nvarchar(max)" />
+    <Property Name="addtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="200" />
+    <Property Name="password" Type="nvarchar" MaxLength="100" />
+    <Property Name="salt" Type="nvarchar" MaxLength="100" />
+    <Property Name="mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="realname" Type="nvarchar" MaxLength="50" />
+    <Property Name="avatar" Type="nvarchar" MaxLength="300" />
+    <Property Name="nickname" Type="nvarchar" MaxLength="50" />
+    <Property Name="idcard" Type="nvarchar" MaxLength="50" />
+    <Property Name="money" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="points" Type="int" />
+    <Property Name="openid" Type="nvarchar" MaxLength="50" />
+    <Property Name="issubscribe" Type="int" Nullable="false" />
+    <Property Name="parent_id" Type="int" />
+    <Property Name="addtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_user_message">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="msgtype" Type="int" />
+    <Property Name="senduid" Type="int" />
+    <Property Name="receiveuid" Type="int" />
+    <Property Name="title" Type="nvarchar" MaxLength="100" />
+    <Property Name="details" Type="nvarchar(max)" />
+    <Property Name="readstatus" Type="int" />
+    <Property Name="readtime" Type="datetime" />
+    <Property Name="addtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_user_money_log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="int" />
+    <Property Name="type" Type="int" />
+    <Property Name="money" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="remark" Type="nvarchar" MaxLength="500" />
+    <Property Name="addtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ht_user_point_log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="int" />
+    <Property Name="point" Type="int" />
+    <Property Name="remark" Type="varchar" MaxLength="50" />
+    <Property Name="addtime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__ht_manage__rolei__3B0BC30C">
+    <End Role="ht_manager_role" Type="Self.ht_manager_role" Multiplicity="0..1" />
+    <End Role="ht_manager" Type="Self.ht_manager" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ht_manager_role">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ht_manager">
+        <PropertyRef Name="roleid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ht_manage__rolei__3BFFE745">
+    <End Role="ht_manager_role" Type="Self.ht_manager_role" Multiplicity="0..1" />
+    <End Role="ht_manager_role_value" Type="Self.ht_manager_role_value" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ht_manager_role">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ht_manager_role_value">
+        <PropertyRef Name="roleid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ht_news_ht_news_cate">
+    <End Role="ht_news_cate" Type="Self.ht_news_cate" Multiplicity="1" />
+    <End Role="ht_news" Type="Self.ht_news" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ht_news_cate">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ht_news">
+        <PropertyRef Name="cateid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="ht_account" EntityType="Self.ht_account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_ad" EntityType="Self.ht_ad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_ad_category" EntityType="Self.ht_ad_category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_category" EntityType="Self.ht_category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_comm_relation" EntityType="Self.ht_comm_relation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_help" EntityType="Self.ht_help" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_manager" EntityType="Self.ht_manager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_manager_log" EntityType="Self.ht_manager_log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_manager_role" EntityType="Self.ht_manager_role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_manager_role_value" EntityType="Self.ht_manager_role_value" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_navigation" EntityType="Self.ht_navigation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_news" EntityType="Self.ht_news" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_news_cate" EntityType="Self.ht_news_cate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_order" EntityType="Self.ht_order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_order_appraise" EntityType="Self.ht_order_appraise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_payment" EntityType="Self.ht_payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_region" EntityType="Self.ht_region" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_review" EntityType="Self.ht_review" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_single_page" EntityType="Self.ht_single_page" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_sms_config" EntityType="Self.ht_sms_config" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_sms_email" EntityType="Self.ht_sms_email" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_sms_record" EntityType="Self.ht_sms_record" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_sms_template" EntityType="Self.ht_sms_template" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_sys_config" EntityType="Self.ht_sys_config" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_user" EntityType="Self.ht_user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_user_message" EntityType="Self.ht_user_message" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_user_money_log" EntityType="Self.ht_user_money_log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ht_user_point_log" EntityType="Self.ht_user_point_log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ht_manage__rolei__3B0BC30C" Association="Self.FK__ht_manage__rolei__3B0BC30C">
+      <End Role="ht_manager_role" EntitySet="ht_manager_role" />
+      <End Role="ht_manager" EntitySet="ht_manager" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ht_manage__rolei__3BFFE745" Association="Self.FK__ht_manage__rolei__3BFFE745">
+      <End Role="ht_manager_role" EntitySet="ht_manager_role" />
+      <End Role="ht_manager_role_value" EntitySet="ht_manager_role_value" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ht_news_ht_news_cate" Association="Self.FK_ht_news_ht_news_cate">
+      <End Role="ht_news_cate" EntitySet="ht_news_cate" />
+      <End Role="ht_news" EntitySet="ht_news" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
